@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+dotnet publish Patcher.csproj -c Release -o bin/Publish
