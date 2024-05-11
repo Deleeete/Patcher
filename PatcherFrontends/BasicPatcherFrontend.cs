@@ -111,7 +111,7 @@ internal class BasicPatcherFrontend : IPatcherFrontend
             int offset = (int)(call.VirtualAddress - TextSectionBase);
             uint inst = BitConverter.ToUInt32(Data, offset);
             if (inst != call.Instruction)
-                throw new Exception($"Unexpected instruction value: Expecting (by disassembly): {call.Instruction:X}  Actual: {inst:X}");
+                throw new Exception($"Unexpected instruction value at offset 0x{offset:X}: Expecting (by disassembly): {call.Instruction:X}  Actual: {inst:X}");
             Console.WriteLine($"  - Killing function call at offset 0x{offset:X}");
             Data.WriteUInt32Data(offset, Instructions.Nop[Arch]);
         }
