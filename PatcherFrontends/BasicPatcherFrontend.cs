@@ -65,7 +65,7 @@ internal class BasicPatcherFrontend : IPatcherFrontend
             {
                 Console.WriteLine($"Failed to execute line {lineNum + 1}: {ex.Message}\n{ex.StackTrace}");
                 if (!AllowFailure)
-                    Environment.Exit(ex.HResult);
+                    Environment.Exit(-1);
             }
         }
     }
